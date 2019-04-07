@@ -5,12 +5,10 @@
 |------|----|-------|
 |nickname|string|null: false, unique: true|
 |email|string|null: false, unique: true|
-|timestamps|
 |group_id|integer|
 
 ### association
 - has_many :messages
-- has_many :groups
 - has_many :groups, through: :members
 
 
@@ -19,7 +17,6 @@
 |------|----|-------|
 |message|text|nul: false|
 |image|text|
-|timestamps|
 |user_id|integer|
 
 ### association
@@ -33,7 +30,6 @@
 
 ### association
 - has_many :users, through: :members
-- belongs_to :user
 
 
 ## membersテーブル
