@@ -28,6 +28,7 @@
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|groupname|string|null: false|
 |user|references|foreign_key: true|
 
 ### association
