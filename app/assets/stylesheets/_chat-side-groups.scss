@@ -1,0 +1,18 @@
+.groups {
+  background-color: #2f3e51;
+  height: calc(100vh - 100px);
+  width: 300px;
+  padding: 20px 20px 0;
+  box-sizing: border-box;
+  .group {
+    color: $color-text-white;
+    margin-bottom: 40px;
+    .group--name {
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+    .group--message{
+      font-size: 11px;
+    }
+  }
+}
