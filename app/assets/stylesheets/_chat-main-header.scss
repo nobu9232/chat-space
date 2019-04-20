@@ -1,0 +1,37 @@
+.main-header {
+  height: 100px;
+  border-bottom: 1px solid #eeeeee;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  .current--group{
+    padding-top: 35px;
+    box-sizing: border-box;
+    display: block;
+    .current--group__name {
+      font-size: 20px;
+      color: #333333;
+    }
+    .group--list {
+      padding-top: 15px;
+      font-size: 12px;
+      color: $color-main-text;
+      display: flex;
+      list-style: none;
+      .group--list__menber {
+        padding-left: 5px;
+      }
+    }
+  }
+  .main--heder__edit--btn {
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    margin-top: 30px;
+    border: solid 1px ;
+    color: $color-btn;
+    text-decoration: none;
+  }
+}

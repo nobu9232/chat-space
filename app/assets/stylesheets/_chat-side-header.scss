@@ -1,0 +1,29 @@
+.side--header {
+  background-color: #253141;
+  height: 100px;
+  width: 300px;
+  padding: 0 20px;
+  align-items: center;
+  display: flex;
+  font-weight: bold;
+  box-sizing: border-box;
+  justify-content: space-between;
+  color: $color-text-white;
+  .side--header__user--name{
+    font-size: 16px;
+  }
+  .user--menu{
+    box-sizing: border-box;
+    display: flex;
+    .user--menu__new--gruop{
+      margin-left: 0.3rem;
+    }
+    .user--menu__edit--user{
+      margin-left: 0.3rem;
+    }
+  }
+}
+
+.user-menu_label-color{
+  color: $color-text-white;
+}
