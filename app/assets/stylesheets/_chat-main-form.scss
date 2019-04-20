@@ -8,7 +8,7 @@
     .input--box {
       position: relative;
       width: 100%;
-      .input--box__text {
+      &__text {
         height: 50px;
         width: 100%;
         padding: 0 40px 0 10px;
@@ -17,7 +17,7 @@
         border-style: none;
         box-sizing: border-box;
       }
-      .input--box__image--label {
+      &__image--label {
         font-size: 1.3rem;
         position: absolute;
         top: 10px;

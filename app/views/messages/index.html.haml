@@ -1,6 +1,6 @@
-%div.warpper
-  %div.chat-side
-    %div.side--header
+.warpper
+  .chat-side
+    .side--header
       %p.side--header__user--name 
         seo
       %ul.user--menu
@@ -10,11 +10,11 @@
         %li.user--menu__edit--user
           %a.user-menu_label-color{:href => ""}
             %i.fa.fa-cog 
-    %div.groups
+    .groups
       = render partial: "messages/group"
-  %div.chat-main
-    %div.main-header
-      %div.current--group
+  .chat-main
+    .main-header
+      .current--group
         %h2.current--group__name
           sample
           %ul.group--list
@@ -23,11 +23,11 @@
               seo neko
       %a.main--heder__edit--btn{:href => ""}
         Edit
-    %div.messages
+    .messages
       = render partial: "messages/message"
-    %div.form
+    .form
       %form.new-message
-        %div.input--box
+        .input--box
           %input.input--box__text{:placeholder => "type a message"}
           %label.input--box__image--label{:href => ""}
             %i.fa.fa-image

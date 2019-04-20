@@ -9,12 +9,12 @@
     .upper--info {
       display: flex;
       margin-bottom: 10px; 
-      .upper--info__user{
+      &__user{
         color: $color-main-message;
         font-size: 16px;
         font-weight: bold;
       }
-      .upper--info__date {
+      &__date {
         color: $color-main-text;
         font-size: 12px;
         padding-left: 10px;

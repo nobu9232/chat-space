@@ -4,11 +4,11 @@
   padding: 0 40px;
   display: flex;
   justify-content: space-between;
-  .current--group{
+  .current--group {
     padding-top: 35px;
     box-sizing: border-box;
     display: block;
-    .current--group__name {
+    &__name {
       font-size: 20px;
       color: #333333;
     }
@@ -18,7 +18,7 @@
       color: $color-main-text;
       display: flex;
       list-style: none;
-      .group--list__menber {
+      &__menber {
         padding-left: 5px;
       }
     }
