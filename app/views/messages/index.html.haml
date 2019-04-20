@@ -5,10 +5,10 @@
         seo
       %ul.user--menu
         %li.user--menu__new--gruop
-          %a.user-menu_label-color{:href => ""}
+          %link_to.user-menu_label-color{:href => ""}
             %i.fa.fa-edit
         %li.user--menu__edit--user
-          %a.user-menu_label-color{:href => ""}
+          %link_to.user-menu_label-color{:href => ""}
             %i.fa.fa-cog 
     .groups
       = render partial: "messages/group"
@@ -21,7 +21,7 @@
             menber : 
             %li.group--list__menber
               seo neko
-      %a.main--heder__edit--btn{:href => ""}
+      %link_to.main--heder__edit--btn{:href => ""}
         Edit
     .messages
       = render partial: "messages/message"
