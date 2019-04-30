@@ -1,35 +1,38 @@
-.warpper
+.wrapper
   .chat-side
     .side--header
       %p.side--header__user--name 
-        seo
+        = current_user.name
       %ul.user--menu
         %li.user--menu__new--gruop
-          %link_to.user-menu_label-color{:href => ""}
+          = link_to new_group_path,{class: "user-menu_label-color"} do
             %i.fa.fa-edit
         %li.user--menu__edit--user
-          %link_to.user-menu_label-color{:href => ""}
+          = link_to edit_user_path(current_user),{class: "user-menu_label-color" } do
             %i.fa.fa-cog 
     .groups
-      = render partial: "messages/group"
+      = render partial: "groups/group"
   .chat-main
     .main-header
       .current--group
         %h2.current--group__name
-          sample
+          = @group.groupname
           %ul.group--list
             menber : 
             %li.group--list__menber
-              seo neko
-      %link_to.main--heder__edit--btn{:href => ""}
+              - @group.users.each do |user|
+                = user.name
+      = link_to edit_group_path(current_user),{class: "main--heder__edit--btn" } do
         Edit
     .messages
-      = render partial: "messages/message"
+      = render partial: "messages/message", collection: @messages
     .form
-      %form.new-message
+      = form_for [@group, @message], html: {class: 'new-message'} do |f|
         .input--box
-          %input.input--box__text{:placeholder => "type a message"}
-          %label.input--box__image--label{:href => ""}
+          = f.text_field :text, class: 'input--box__text', placeholder: 'type a message'
+          = f.label :image, class: 'input--box__image--label' do
             %i.fa.fa-image
-            %input.input--box__image{:type => "file", :id => "file_upload"}
-        %input.new--message__submit--btn{:type => "submit", :value => "Send"}
+            = f.file_field :image, class: 'input--box__image'
+        = f.submit 'Send', class: 'new--message__submit--btn'
+
+

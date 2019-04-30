@@ -1,6 +1,6 @@
 @import "./reset";
-@import "./font";
-@import "./warpper";
+@import "config/font-colors";
+@import "./wrapper";
 @import "./chat-side";
 @import "./chat-side-header";
 @import "./chat-side-groups";
@@ -9,3 +9,7 @@
 @import "./chat-main-messages";
 @import "./chat-main-form";
 @import "./font-awesome";
+@import "./user";
+@import "config/colors";
+@import "./flash";
+@import "./group";
