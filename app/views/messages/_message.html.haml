@@ -1,16 +1,9 @@
 .message_list
   .upper--info
     %p.upper--info__user 
-      seo
+      = message.user.name
     %p.upper--info__date 
-      2016/09/21 06:16:55
-  %p.message--text 
-    Hello world!
-.message_list
-  .upper--info
-    %p.upper--info__user 
-      neko
-    %p.upper--info__date 
-      2016/09/21 06:16:55
-  %p.message--text 
-    Good bye world!
+      = message.created_at.strftime("%Y/%m/%d %H:%M")
+  - if message.text.present?
+    = message.text
+    = image_tag message.image.url, class: 'message--text ' if message.image.present?

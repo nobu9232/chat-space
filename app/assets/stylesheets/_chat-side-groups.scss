@@ -7,12 +7,20 @@
   .group {
     color: $color-text-white;
     margin-bottom: 40px;
+    display: block;
+    cursor: pointer;
     .group--name {
       font-size: 15px;
       margin-bottom: 5px;
+      text-decoration: none;
     }
     .group--message{
       font-size: 11px;
     }
   }
+}
+
+.group_style{
+  color: $color-text-white;
+  text-decoration: none;
 }
