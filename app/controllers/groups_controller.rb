@@ -7,6 +7,7 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @group.users << current_user
+    @groups = @group.users.where.not(id: current_user[:id])
   end
 
   def create
@@ -24,6 +25,10 @@ class GroupsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def edit
+    @groups = @group.users.where.not(id: current_user[:id])
   end
 
   private

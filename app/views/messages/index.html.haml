@@ -22,7 +22,7 @@
             %li.group--list__menber
               - @group.users.each do |user|
                 = user.name
-      = link_to edit_group_path(current_user),{class: "main--heder__edit--btn" } do
+      = link_to edit_group_path(@group),{class: "main--heder__edit--btn" } do
         Edit
     .messages
       = render partial: "messages/message", collection: @messages
