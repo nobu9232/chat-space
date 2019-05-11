@@ -23,50 +23,59 @@ $(function(){
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action');
+    var message = $('.input--box__text').val()
+    var image = $('.input--box__image').val()
     $('.new--message__submit--btn').removeAttr('data-disable-with');
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: formData,
-      datatype: 'json',
-      processData: false,
-      contentType: false
-    })
-
-    .done(function(data){
-      var html = buildHTML(data);
-      $('.messages').append(html);
-      $('.new-message')[0].reset();
-      $('.new--message__submit--btn').prop('disabled',false);
-      $('.messages').animate({scrollTop:$('.messages')[0].scrollHeight});
-    })
-    .fail(function(){
+    if (message == "" && image == ""){
       alert('メッセージを入力してください');
       $('.new--message__submit--btn').prop('disabled',false);
-    })
+    }else{
+      $.ajax({
+        url: url,
+        type: "POST",
+        data: formData,
+        dataType: 'json',
+        processData: false,
+        contentType: false
+      })
+      
+      .done(function(data){
+        console.log(data)
+        var html = buildHTML(data);
+        $('.messages').append(html);
+        $('.new-message')[0].reset();
+        $('.new--message__submit--btn').prop('disabled',false);
+        $('.messages').animate({scrollTop:$('.messages')[0].scrollHeight});
+      })
+      .fail(function(){
+        alert('非同期通信に失敗しました');
+        $('.new--message__submit--btn').prop('disabled',false);
+      })
+    }
   })
 
-  function reloadMessages() {
-    var last_message_id = $('.message_list').last().data('id');
-    $.ajax({
-      url: 'api/messages',
-      type: 'GET',
-      datatype: 'json',
-      data: {id: last_message_id}
-    })
+  if (window.location.href.match(/\/groups\/\d+\/messages/)){
+    function reloadMessages() {
+      var last_message_id = $('.message_list').last().data('id');
+      $.ajax({
+        url: 'api/messages',
+        type: 'GET',
+        datatype: 'json',
+        data: {id: last_message_id}
+      })
 
-    .done(function(messages){
-      messages.forEach(function(message){
-        var insertHTML = buildHTML(message)
-        $('.messages').append(insertHTML)
+      .done(function(messages){
+        messages.forEach(function(message){
+          var insertHTML = buildHTML(message)
+          $('.messages').append(insertHTML)
+        });
+        $('.messages').animate({scrollTop:$('.messages')[0].scrollHeight});
+      })
+
+      .fail(function(){ 
+        alert('更新に失敗しました');
       });
-
-      $('.messages').animate({scrollTop:$('.messages')[0].scrollHeight});
-    })
-
-    .fail(function(){ 
-      alert('更新に失敗しました');
-    });
-  };
-  setInterval(reloadMessages, 5000);
+    };
+    setInterval(reloadMessages, 5000);
+  }
 })

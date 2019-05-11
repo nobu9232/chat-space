@@ -18,9 +18,9 @@
         %h2.current--group__name
           = @group.groupname
           %ul.group--list
-            menber : 
-            %li.group--list__menber
-              - @group.users.each do |user|
+            menber :            
+            - @group.users.each do |user|
+              %li.group--list__menber
                 = user.name
       = link_to edit_group_path(@group),{class: "main--heder__edit--btn" } do
         Edit
